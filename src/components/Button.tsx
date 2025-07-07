@@ -10,7 +10,7 @@ interface ButtonProps {
 }
 
 const variantClass = {
-    "primary": "text-black outline",
+    "primary": "text-black outline bg-purple-600 text-purple-600",
 }
 
 const defaultStyles = "m-2 px-2 py-1 rounded-2xl font-light flex items-center cursor-pointer border-zinc-50 hover:border-zinc-300 hover:border-shadow-2xl"
