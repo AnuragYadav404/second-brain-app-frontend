@@ -1,4 +1,4 @@
-import type { ReactElement } from "react"
+import { useEffect, type ReactElement } from "react"
 import { Button } from "./Button"
 
 interface CardProps {
@@ -12,12 +12,21 @@ interface CardProps {
 
 
 export const Card = (props: CardProps) => {
+
+    useEffect(() => {
+    // Trigger Twitter to render embeds
+    if (window.twttr && window.twttr.widgets) {
+      window.twttr.widgets.load();
+    }
+  }, []);
+
+
     return (<div className="w-80 border-outline border-zinc-500 border-1 rounded-2xl m-4 p-2 bg-slate-50 hover:bg-slate-100">
         <div className="flex justify-between">
             <Button variant="iconButton" onClick={() => {}} frontIcon={props.logoIcon}/>
             <div className="flex">
                 <Button variant="iconButton" onClick={() => {}} frontIcon={props.shareIcon}/>
-                <Button variant="iconButton" onClick={() => {}} frontIcon={props.deleteIcon}/>
+                {props.deleteIcon && <Button variant="iconButton" onClick={() => {}} frontIcon={props.deleteIcon}/>}
             </div>
         </div>
         <div className="pl-4">

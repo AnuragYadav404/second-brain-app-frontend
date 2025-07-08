@@ -6,6 +6,7 @@ export const useContent = () => {
 
 
     async function fetchContent() {
+        console.log("Fetching ...")
         const response = await axios.get("http://localhost:3000/api/v1/contents",
             {
                 headers: {
@@ -21,9 +22,13 @@ export const useContent = () => {
         }
     }
 
-    useEffect( ()=> {
+    useEffect( () => {
         if(localStorage.getItem("token")){
              fetchContent();
+        }
+        const intervalID = setInterval(fetchContent, 5000)
+        return () => {
+            clearInterval(intervalID)
         }
     }, [])
 

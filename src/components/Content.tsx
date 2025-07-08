@@ -6,22 +6,23 @@ import { youtubeIcon } from '../icons/youtubeIcon'
 import { twitterIcon } from '../icons/twitterIcon'
 import { useContent } from '../hooks/useContent'
 
-interface Content {
+export interface ContentType {
     type: "youtube"|"twitter",
     link: string,
     title: string
+    _id: string
 }
 
 
 export const Content = () => {
 
-    const contents: Content[] = useContent();
+    const contents: ContentType[] = useContent();
 
     return (
-        <div className='flex flex-wrap bg-gray-100 flex-1 gap-4 px-6'>
+        <div className='flex flex-wrap bg-gray-100 flex-1 gap-4 px-6 '>
             {contents.map((content) => {
                 return (
-                    <Card logoIcon={content.type==="youtube" ? youtubeIcon : twitterIcon} shareIcon={shareIcon} deleteIcon={deleteIcon} link={content.link} contentType={content.type} title={content.title}/>
+                    <Card key={content._id} logoIcon={content.type==="youtube" ? youtubeIcon : twitterIcon} shareIcon={shareIcon} deleteIcon={deleteIcon} link={content.link} contentType={content.type} title={content.title}/>
                 )
             })}
         </div>
