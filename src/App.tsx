@@ -1,23 +1,33 @@
 // import { Button } from './components/Button'
 
-import { Content } from './components/Content'
-import { Sidebar } from './components/Sidebar'
-import { Topbar } from './components/Topbar'
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Signin } from './components/Signin'
+import { Signup } from './components/Signup'
+import { Dashboard } from './components/Dashboard'
 
 function App() {
 
-  return (
-    <div className=''>
-    {/* <Button variant="primary" text='Add Content' onClick={()=> {}} frontIcon={plusIcon}/> 
-   <Button variant="primary" text='Share Brain' onClick={()=> {}} frontIcon={shareIcon}/> */}
-    <Sidebar />
-    <div className='ml-72'>
-      <Topbar />
-      <Content />
-    </div> 
-   </div>
-  )
+
+
+  return (<BrowserRouter>
+    <Routes>
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/signin" element={<Signin />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  </BrowserRouter>)
+  
+
+
+  // return (
+  //   <div>
+  //   {/* <Button variant="primary" text='Add Content' onClick={()=> {}} frontIcon={plusIcon}/> 
+  //  <Button variant="primary" text='Share Brain' onClick={()=> {}} frontIcon={shareIcon}/> */}
+  //   {/* <Sidebar />
+  //   <Dashboard /> */}
+  //     <Signin />
+  //  </div>
+  // )
 }
 
 export default App

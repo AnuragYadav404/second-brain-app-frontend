@@ -25,7 +25,7 @@ export const Card = (props: CardProps) => {
         </div>
         <div className="w-full p-2">
 
-            {props.contentType === "youtube" && <iframe  className="w-full border-1 border-b-zinc-200 rounded-2xl" src={props.link.replace("watch", "embed").replace("?v=","/")} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
+            {props.contentType === "youtube" && <iframe  className="w-full border-1 border-b-zinc-200 rounded-2xl" src={props.link.replace("watch", "embed").replace("?v=","/")} title="YouTube video player" frameBorder="0" width="560" height="315" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
 
 
             {props.contentType === "twitter" && <blockquote className="twitter-tweet"><a href={props.link.replace("x.com", "twitter.com")}></a></blockquote> }
